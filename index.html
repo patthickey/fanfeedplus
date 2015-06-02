@@ -48,10 +48,11 @@
   <br/>
 
   <fieldset>
-  <form action="sign_up.php" method="post">
+  <form action="sign_up.php" method="post" onsubmit="return validate_signup();">
     <legend>sign up</legend>
-    Email address: <input type="email" name="email" id="email"> <br/>
-    Password: <input type="password" name="password" id="password"> <br/>
+    Email address: <input type="email" name="email_up" id="email_up"> <br/>
+    Password: <input type="password" name="password1" id="password1"> <br/>
+    Retype Password: <input type="password" name="password2" id="password2"> <br/>
     App Screen Name: <input type="string" name="app_screen_name" id="app_screen_name"> <br/>    
     <input type="submit" />
   </form>
@@ -60,10 +61,10 @@
   <br/>
 
   <fieldset>
-  <form action="sign_in.php" method="post">
+  <form action="sign_in.php" method="post" onsubmit="return validate_signin();">
     <legend>sign in</legend>
-    Email address: <input type="email" name="email" id="email"> <br/>
-    Password: <input type="password" name="password" id="password"> <br/>  
+    Email address: <input type="email" name="email_in" id="email_in"> <br/>
+    Password: <input type="password" name="password3" id="password3"> <br/>  
     <input type="submit" />
   </form>
   </fieldset>  
@@ -71,17 +72,17 @@
   <br/>
 
   <fieldset>
-  <form action="add_card.php" method="post" id="add_card">
+  <form action="add_card.php" method="post" id="add_card" onsubmit="return validate_add_card();">
     <legend>add card</legend>
     Parallel: <select name="parallel" class="has-extra-hidden-children">
-      <option></option>
+      <option value="Blank"></option>
       <option value="Insert">insert</option>
       <option value="Base">base</option>
       <option value="Award">award</option>    
     </select>
 
     Faction: <select name="faction">
-      <option></option>
+      <option value="Blank"></option>
       <option value="Galactic Empire">galactic empire</option>
       <option value="Galactic Republic">galactic republic</option>  
       <option value="Independent">independent</option> 
@@ -92,7 +93,7 @@
 
     <div class="is-extra-hidden-child" style="display:none">    
       In set: <select name="in_set" id="in_set_test">
-        <option></option>
+        <option value="Blank"></option>
         <option value="Galactic Moments">galactic moments</option>
         <option value="Bounty">bounty</option>  
         <option value="Fans Choice">fan's choice</option> 
@@ -116,11 +117,13 @@
     Rarity: <input type="number" name="rarity"> <br/>
 
     Sold Out: <select name="sold_out">
+      <option value="Blank"></option>
       <option value="No">no</option>    
       <option value="Yes">yes</option> 
     </select> 
 
     Series: <select name="series">
+      <option value="Blank"></option>
       <option value="1">1</option>
       <option value="2">2</option>
     </select>               

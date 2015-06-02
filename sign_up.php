@@ -11,13 +11,13 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
  
 // Create SQL statement
-$email = $_POST['email'];
-$password = $_POST['password'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$email_up = $_POST['email_up'];
+$password1 = $_POST['password1'];
+$hash = password_hash($password1, PASSWORD_DEFAULT);
 $app_screen_name = $_POST['app_screen_name'];
 $date = date('Y-m-d');
 
-$query = "INSERT INTO users (email, password, app_screen_name, join_date) VALUES ('$email', '$hash', '$app_screen_name', '$date')";
+$query = "INSERT INTO users (email, password, app_screen_name, join_date) VALUES ('$email_up', '$hash', '$app_screen_name', '$date')";
 
 // Execute SQL statement
 if (!($result = @ mysql_query ($query, $connection)))

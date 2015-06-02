@@ -11,14 +11,14 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
  
 // Create SQL statement
-$email = $_POST['email'];
-$password = $_POST['password'];
-$query = mysql_query("SELECT * FROM users WHERE email = '$email'");
+$email_in = $_POST['email_in'];
+$password3 = $_POST['password3'];
+$query = mysql_query("SELECT * FROM users WHERE email = '$email_in'");
 $row = mysql_fetch_array($query);
 $hash = $row["password"];  
 
 
-if (password_verify($password, $hash)) {
+if (password_verify($password3, $hash)) {
     echo 'Password is valid!';
 } else {
     echo 'Invalid password.';
