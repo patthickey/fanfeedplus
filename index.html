@@ -74,14 +74,14 @@
   <fieldset>
   <form action="add_card.php" method="post" id="add_card" onsubmit="return validate_add_card();">
     <legend>add card</legend>
-    Parallel: <select name="parallel" class="has-extra-hidden-children">
+    Parallel: <select name="parallel_add" id="parallel_add" class="has-extra-hidden-children">
       <option value="Blank"></option>
       <option value="Insert">insert</option>
       <option value="Base">base</option>
-      <option value="Award">award</option>    
+      <option value="Award">award</option>
     </select>
 
-    Faction: <select name="faction">
+    Faction: <select name="faction_add" id="faction_add">
       <option value="Blank"></option>
       <option value="Galactic Empire">galactic empire</option>
       <option value="Galactic Republic">galactic republic</option>  
@@ -92,7 +92,7 @@
     </select>
 
     <div class="is-extra-hidden-child" style="display:none">    
-      In set: <select name="in_set" id="in_set_test">
+      In set: <select name="in_set_add" id="in_set_add">
         <option value="Blank"></option>
         <option value="Galactic Moments">galactic moments</option>
         <option value="Bounty">bounty</option>  
@@ -102,27 +102,27 @@
         <option value="Topps Choice">topps' choice</option> 
         <option value="Other">other</option>                      
       </select>
-      <input name="other" type="text" value="other set" id="other_test" style="display:none">
+      <input name="other_add" type="text" id="other_add" style="display:none">
     </div>
 
 
-    Name: <input type="string" name="card_name"> <br/>
+    Name: <input type="string" name="card_name_add" id="card_name_add"> <br/>
 
-    Color: <input type="string" name="color"> <br/> 
+    Color: <input type="string" name="color_add" id="color_add"> <br/> 
 
     <div class="is-extra-hidden-child" style="display:none">   
-      Number in Set: <input type="number" name="number_in_set"> <br/>
+      Number in Set: <input type="number" name="number_in_set_add" id="number_in_set_add"> <br/>
     </div>
 
-    Rarity: <input type="number" name="rarity"> <br/>
+    Rarity: <input type="number" name="rarity_add" id="rarity_add"> <br/>
 
-    Sold Out: <select name="sold_out">
+    Sold Out: <select name="sold_out_add" id="sold_out_add">
       <option value="Blank"></option>
       <option value="No">no</option>    
       <option value="Yes">yes</option> 
     </select> 
 
-    Series: <select name="series">
+    Series: <select name="series_add" id="series_add">
       <option value="Blank"></option>
       <option value="1">1</option>
       <option value="2">2</option>

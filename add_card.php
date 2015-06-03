@@ -11,15 +11,15 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
  
 // Create SQL statement
-$parallel = $_POST['parallel'];
-$faction = $_POST['faction'];
-$in_set = $_POST['in_set'];
-$card_name = $_POST['card_name'];
-$color = $_POST['color'];
-$number_in_set = $_POST['number_in_set'];
-$rarity = $_POST['rarity'];
-$sold_out = $_POST['sold_out'];
-$series = $_POST['series'];
+$parallel = $_POST['parallel_add'];
+$faction = $_POST['faction_add'];
+$in_set = $_POST['in_set_add'];
+$card_name = $_POST['card_name_add'];
+$color = $_POST['color_add'];
+$number_in_set = $_POST['number_in_set_add'];
+$rarity = $_POST['rarity_add'];
+$sold_out = $_POST['sold_out_add'];
+$series = $_POST['series_add'];
 
 $query = "INSERT INTO cards (parallel, faction, in_set, card_name, color, number_in_set, rarity, sold_out, series) 
 	VALUES ('$parallel', '$faction', '$in_set', '$card_name', '$color', '$number_in_set', '$rarity', '$sold_out', '$series')";

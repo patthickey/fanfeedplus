@@ -7,28 +7,28 @@ $(document).ready(function(){
         }
     });
 
-    $('#in_set_test').change(function(){
+    $('#in_set_add').change(function(){
         if( $(this).val()==="Other"){
-            $("#other_test").show()
+            $("#other_add").show()
         }else{
-            $("#other_test").hide()
+            $("#other_add").hide()
         }
     });
-    $("#other_test").keyup(function(ev){
-    var othersOption = $('#in_set_test').find('option:selected');
+    $("#other_add").keyup(function(ev){
+    var othersOption = $('#in_set_add').find('option:selected');
     if(othersOption.val() == "Other")
     {
         ev.preventDefault();
         //change the selected drop down text
-        $(othersOption).html($("#other_test").val()); 
+        $(othersOption).html($("#other_add").val()); 
     } 
 	});
 	$('#add_card').submit(function() {
-	    var othersOption = $('#in_set_test').find('option:selected');
+	    var othersOption = $('#in_set_add').find('option:selected');
 	    if(othersOption.val() == "Other")
 	    {
 	        // replace select value with text field value
-	        othersOption.val($("#other_test").val());
+	        othersOption.val($("#other_add").val());
 	    }
 	});
 
@@ -56,11 +56,11 @@ function all_overide() {
 		color.value = "%%";
 	}
 
-	if((number_in_set.value=="All")||(number_in_set.value=="all")||(number_in_set.value=="")) {
+	if((number_in_set.value=="All")||(number_in_set.value=="all")||(number_in_set.value=="")||(!isNaN(number_in_set.value))) {
 		number_in_set.value = "%%";
 	}
 
-	if((rarity.value=="All")||(rarity.value=="all")||(rarity.value=="")) {
+	if((rarity.value=="All")||(rarity.value=="all")||(rarity.value=="")||(!isNaN(rarity.value))) {
 		rarity.value = "%%";
 	}
 
@@ -166,58 +166,75 @@ function validate_signin() {
 }
 
 function validate_add_card() {
+
 		
-		if(parallel.value=="Blank") {
-			document.getElementById("parallel").focus();
-			document.getElementById("parallel").style.backgroundColor="#FF6666";
+		if(parallel_add.value=="Blank") {
+			alert("forgot parallel");
+			document.getElementById("parallel_add").focus();
+			document.getElementById("parallel_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(faction.value=="Blank") {
-			document.getElementById("faction").focus();
-			document.getElementById("faction").style.backgroundColor="#FF6666";
+		if(faction_add.value=="Blank") {
+			alert("forgot faction");
+			document.getElementById("faction_add").focus();
+			document.getElementById("faction_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(in_set.value=="Blank") {
-			document.getElementById("in_set").focus();
-			document.getElementById("in_set").style.backgroundColor="#FF6666";
+		if((parallel_add.value=="Insert")&&(in_set_add.value=="Blank")) {
+			alert("forgot set");
+			document.getElementById("in_set_add").focus();
+			document.getElementById("in_set_add").style.backgroundColor="#FF6666";
 			return false;
 		}		
 
-		if(card_name.value=="") {
-			document.getElementById("card_name").focus();
-			document.getElementById("card_name").style.backgroundColor="#FF6666";
+		if((in_set_add.value=="Other")&&(other_add.value=="")) {
+			alert("forgot set name");
+			document.getElementById("other_add").focus();
+			document.getElementById("other_add").style.backgroundColor="#FF6666";
+			return false;
+		}		
+
+		if(card_name_add.value=="") {
+			alert("forgot card name");
+			document.getElementById("card_name_add").focus();
+			document.getElementById("card_name_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(color.value=="") {
-			document.getElementById("color").focus();
-			document.getElementById("color").style.backgroundColor="#FF6666";
+		if(color_add.value=="") {
+			alert("forgot color");
+			document.getElementById("color_add").focus();
+			document.getElementById("color_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(number_in_set.value=="") {
-			document.getElementById("number_in_set").focus();
-			document.getElementById("number_in_set").style.backgroundColor="#FF6666";
+		if((parallel_add.value=="Insert")&&(number_in_set_add.value=="")&&(!isNaN(number_in_set_add.value))) {
+			alert("forgot number");
+			document.getElementById("number_in_set_add").focus();
+			document.getElementById("number_in_set_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(rarity.value=="") {
-			document.getElementById("rarity").focus();
+		if((rarity_add.value=="")&&(!isNaN(number_in_set_add.value))) {
+			alert("forgot number");
+			document.getElementById("rarity_add").focus();
 			document.getElementById("rarity").style.backgroundColor="#FF6666";
 			return false;
 		}
 
-		if(sold_out.value=="Blank") {
-			document.getElementById("sold_out").focus();
-			document.getElementById("sold_out").style.backgroundColor="#FF6666";
+		if(sold_out_add.value=="Blank") {
+			alert("forgot sold out");
+			document.getElementById("sold_out_add").focus();
+			document.getElementById("sold_out_add").style.backgroundColor="#FF6666";
 			return false;
 		}	
 
-		if(series.value=="Blank") {
-			document.getElementById("series").focus();
-			document.getElementById("series").style.backgroundColor="#FF6666";
+		if(series_add.value=="Blank") {
+			alert("forgot series");
+			document.getElementById("series_add").focus();
+			document.getElementById("series_add").style.backgroundColor="#FF6666";
 			return false;
 		}
 
@@ -225,7 +242,7 @@ function validate_add_card() {
 			$.ajax({
 		  	type: 'POST',
 		  	url: 'add_card.php',
-		  	data: {parallel:parallel.value, faction:faction.value, in_set:in_set.value, card_name:card_name.value, color:color.value, number_in_set:number_in_set.value, rarity:rarity.value, sold_out:sold_out.value, series:series.value},
+		  	data: {parallel_add:parallel_add.value, faction_add:faction_add.value, in_set_add:in_set_add.value, card_name_add:card_name_add.value, color_add:color_add.value, number_in_set_add:number_in_set_add.value, rarity_add:rarity_add.value, sold_out_add:sold_out_add.value, series_add:series_add.value},
 		})
 			return true;
 		}
