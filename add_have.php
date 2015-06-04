@@ -12,7 +12,7 @@ if (!mysql_select_db($databaseName, $connection))
  
 // Create SQL statement
 foreach ($_POST['have_list'] as $card) {
-     $query = "INSERT INTO have_list (user_id, card_id) VALUES (1, '$card')";
+     $query = "INSERT INTO have_list (user_id, card_id) VALUES (2, '$card')";
  }
 
 // Execute SQL statement

@@ -20,9 +20,9 @@ $query = "SELECT * FROM cards ORDER BY $order_all ASC";
 if (!($result = @ mysql_query ($query, $connection)))
   showerror();
 // Display results
+echo'<form action="add_have.php" method="post">';
 while ($row = @ mysql_fetch_array($result)) {
 echo"<tr>";
-echo'<form action="add_have.php" method="post">';
 echo"
 <td>{$row["parallel"]}</td>
 <td>{$row["faction"]}</td>
@@ -35,7 +35,7 @@ echo"
 <td>{$row["series"]}</td>
 <td>{$row["id"]}</td>
 ";
-echo'<td><input type="checkbox" name="have_list[]" value={$row["id"]}/></td>';
+echo'<td><input type="checkbox" name="have_list[]" value="{$row["id"]}"/></td>';
 echo"</tr>";
 }
 echo'<input type="submit" value="add to list"> </form>';
