@@ -1,3 +1,6 @@
+
+// INPUT VALIDATON -----------------------------------
+
 $(document).ready(function(){
     $('.has-extra-hidden-children').change(function(){
         if( $(this).val()==="Insert"){
@@ -247,5 +250,7 @@ function validate_add_card() {
 			return true;
 		}
 }
+
+// END OF INPUT VALIDATON -----------------------------------
 
 

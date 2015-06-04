@@ -21,9 +21,9 @@ if (!($result = @ mysql_query ($query, $connection)))
   showerror();
 // Display results
 while ($row = @ mysql_fetch_array($result)) {
-echo"<tr>";
-echo'<form action="add_have.php" method="post">';
+
 echo"
+<tr>
 <td>{$row["parallel"]}</td>
 <td>{$row["faction"]}</td>
 <td>{$row["in_set"]}</td>
@@ -33,12 +33,12 @@ echo"
 <td>{$row["rarity"]}</td>
 <td>{$row["sold_out"]}</td>
 <td>{$row["series"]}</td>
-<td>{$row["id"]}</td>
 ";
-echo'<td><input type="checkbox" name="have_list[]" value={$row["id"]}/></td>';
+
+echo'<td><input type="checkbox" value="submit" id="{$row["id"]}/></td>';
 echo"</tr>";
+
 }
-echo'<input type="submit" value="add to list"> </form>';
 ?>
 </table></body>
 </html>
