@@ -1,8 +1,9 @@
 <html><head><title>all cards</title></head>
 <body>
 <table border=1>
-<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>TEST</th></tr>
+<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>HAVE</th><th>WANT</th></tr>
 <?php
+session_start();
 include 'db.inc';
 // Connect to MySQL DBMS
 if (!($connection = @ mysql_connect($hostName, $username,
@@ -20,7 +21,7 @@ $query = "SELECT * FROM cards ORDER BY $order_all ASC";
 if (!($result = @ mysql_query ($query, $connection)))
   showerror();
 // Display results
-echo'<form action="add_have.php" method="post">';
+echo'<form action="add_to_lists.php" method="post">';
 while ($row = @ mysql_fetch_array($result)) {
 echo"<tr>";
 echo"
@@ -33,9 +34,10 @@ echo"
 <td>{$row["rarity"]}</td>
 <td>{$row["sold_out"]}</td>
 <td>{$row["series"]}</td>
-<td>{$row["id"]}</td>
 ";
 echo'<td><input type="checkbox" name="have_list[]" value='.$row["id"].'></td>';
+echo'<td><input type="checkbox" name="want_list[]" value='.$row["id"].'></td>';
+
 echo"</tr>";
 }
 echo'<input type="submit" value="add to list"> </form>';

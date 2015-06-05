@@ -1,6 +1,5 @@
-<html><head><title>add have</title></head>
-<body>
 <?php
+session_start();
 include 'db.inc';
 // Connect to MySQL DBMS
 if (!($connection = @ mysql_connect($hostName, $username,
@@ -11,22 +10,19 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
  
 // Create SQL statement
-foreach ($_POST['have_list'] as $card) {
-	 echo "$card";
-     $query = "INSERT INTO have_list (user_id, card_id) VALUES (6, ".$card.")";
-     echo "$query";
+$id = $_SESSION["login_user"];
+foreach ($_POST['remove_list'] as $card) {
+     $query = "DELETE FROM want_list WHERE (user_id='$id' AND card_id=".$card.")";
 
      if (!($result = @ mysql_query ($query, $connection)))
   	 showerror();
  }
-
+	header('Location:want_list.php');
 // Execute SQL statement
 
 // Display results
 
 
-//echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=index.html">');
+//echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=have_list.php">');
 
 ?>
-</body>
-</html>

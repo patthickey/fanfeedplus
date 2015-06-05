@@ -1,6 +1,5 @@
-<html><head><title>sign up</title></head>
-<body>
 <?php
+session_start();
 include 'db.inc';
 // Connect to MySQL DBMS
 if (!($connection = @ mysql_connect($hostName, $username,
@@ -19,11 +18,24 @@ $hash = $row["password"];
 
 
 if (password_verify($password3, $hash)) {
-    echo 'Password is valid!';
+	$id = $row["id"];
+	//echo "$id";
+	$_SESSION['login_user'] = "$id"; // Initializing Session
+	header('Location:have_list.php');
 } else {
     echo 'Invalid password.';
 }
 
+/*
+$rows = mysql_num_rows($query);
+if ($rows == 1) {
+	echo 'test 2';
+
+	$_SESSION['login_user']=$id; // Initializing Session
+	header("location: have_list.php"); // Redirecting To Other Page
+} else {
+	 echo "Something went wrong";
+}
+*/
+
 ?>
-</body>
-</html>
