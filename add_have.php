@@ -12,12 +12,16 @@ if (!mysql_select_db($databaseName, $connection))
  
 // Create SQL statement
 foreach ($_POST['have_list'] as $card) {
-     $query = "INSERT INTO have_list (user_id, card_id) VALUES (2, '$card')";
+	 echo "$card";
+     $query = "INSERT INTO have_list (user_id, card_id) VALUES (6, ".$card.")";
+     echo "$query";
+
+     if (!($result = @ mysql_query ($query, $connection)))
+  	 showerror();
  }
 
 // Execute SQL statement
-if (!($result = @ mysql_query ($query, $connection)))
-  showerror();
+
 // Display results
 
 

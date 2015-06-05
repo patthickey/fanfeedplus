@@ -35,7 +35,7 @@ echo"
 <td>{$row["series"]}</td>
 <td>{$row["id"]}</td>
 ";
-echo'<td><input type="checkbox" name="have_list[]" value="{$row["id"]}"/></td>';
+echo'<td><input type="checkbox" name="have_list[]" value='.$row["id"].'></td>';
 echo"</tr>";
 }
 echo'<input type="submit" value="add to list"> </form>';
