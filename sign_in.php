@@ -21,7 +21,7 @@ if (password_verify($password3, $hash)) {
 	$id = $row["id"];
 	//echo "$id";
 	$_SESSION['login_user'] = "$id"; // Initializing Session
-	header('Location:have_list.php');
+	header('Location:main_page.html');
 } else {
     echo 'Invalid password.';
 }

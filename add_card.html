@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Patt Hickey">      
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/JavaScript" src="fan_feed_plus.js"></script> 
+    <title>add card</title>
+  </head>
+
+  <body>
+
+    <fieldset>
+    <form action="add_card.php" method="post" id="add_card" onsubmit="return validate_add_card();">
+      <legend>add card</legend>
+      Parallel: <select name="parallel_add" id="parallel_add" class="has-extra-hidden-children">
+        <option value="Blank"></option>
+        <option value="Insert">insert</option>
+        <option value="Base">base</option>
+        <option value="Award">award</option>
+      </select>
+
+      Faction: <select name="faction_add" id="faction_add">
+        <option value="Blank"></option>
+        <option value="Galactic Empire">galactic empire</option>
+        <option value="Galactic Republic">galactic republic</option>  
+        <option value="Independent">independent</option> 
+        <option value="Rebel Alliance">rebel alliance</option>
+        <option value="Separatists">separatists</option>
+        <option value="Creatures">creatures</option>                           
+      </select>
+
+      <div class="is-extra-hidden-child" style="display:none">    
+        In set: <select name="in_set_add" id="in_set_add">
+          <option value="Blank"></option>
+          <option value="Galactic Moments">galactic moments</option>
+          <option value="Bounty">bounty</option>  
+          <option value="Fans Choice">fan's choice</option> 
+          <option value="Vintage">vintage</option>
+          <option value="Widevision">widevision</option>
+          <option value="Topps Choice">topps' choice</option> 
+          <option value="Other">other</option>                      
+        </select>
+        <input name="other_add" type="text" id="other_add" style="display:none">
+      </div>
+
+
+      Name: <input type="string" name="card_name_add" id="card_name_add"> <br/>
+
+      Color: <input type="string" name="color_add" id="color_add"> <br/> 
+
+      <div class="is-extra-hidden-child" style="display:none">   
+        Number in Set: <input type="number" name="number_in_set_add" id="number_in_set_add"> <br/>
+      </div>
+
+      Rarity: <input type="number" name="rarity_add" id="rarity_add"> <br/>
+
+      Sold Out: <select name="sold_out_add" id="sold_out_add">
+        <option value="Blank"></option>
+        <option value="No">no</option>    
+        <option value="Yes">yes</option> 
+      </select> 
+
+      Series: <select name="series_add" id="series_add">
+        <option value="Blank"></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>               
+      <input type="submit" />
+    </form>
+    </fieldset>    
+
+
+  </body>
+
+</html>

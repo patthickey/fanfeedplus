@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Patt Hickey">      
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/JavaScript" src="fan_feed_plus.js"></script> 
+    <title>coming soon</title>
+  </head>
+
+
+  <body>
+
+    <fieldset>
+    <form action="display_all.php" method="post">
+      Order by: <select name="order_all" id="order_all">
+        <option value="parallel">Parallel</option>
+        <option value="faction">Faction</option>        
+      </select>   
+      <input type="submit" value="display all cards">
+    </form>
+  </fieldset>
+
+  <br/>
+
+<!--
+  <fieldset>
+  <form action="display_selected.php" method="post" onsubmit="all_override();">
+    <legend>display a particular card</legend>
+    Parallel: <input type="string" name="parallel" id="parallel" value="All"> <br/>
+    Faction: <input type="string" name="faction" id="faction" value="All"> <br/>
+    In_Set: <input type="string" name="in_set" id="in_set" value="All"> <br/>
+    Name: <input type="string" name="card_name" id="card_name" value="All"> <br/>
+    Color: <input type="string" name="color" id="color" value="All"> <br/>
+    # in Set: <input type="string" name="number_in_set" id="number_in_set" value="All"> <br/>
+    Rarity: <input type="string" name="rarity" id="rarity" value="All"> <br/>
+    Sold Out: <input type="string" name="sold_out" id="sold_out" value="All"> <br/>
+    Series: <input type="string" name="series" id="series" value="All"> <br/>
+    Order by: <select name="order_selected" id="order_selected">
+      <option value="parallel">Parallel</option>
+      <option value="faction">Faction</option>        
+    </select>                   
+    <input type="submit" value="display the cards"/>
+  </form>
+  </fieldset>
+-->
+  <br/>
+
+  <fieldset>
+  <form action="display_selected.php" method="post" id="display_selected" onsubmit="return all_override_two();">
+    <legend>Display</legend>
+    Parallel: <select name="parallel" id="parallel" class="has-extra-hidden-children">
+      <option value="%%">All</option>
+      <option value="Insert">insert</option>
+      <option value="Base">base</option>
+      <option value="Award">award</option>
+    </select>
+
+    Faction: <select name="faction" id="faction">
+      <option value="%%">All</option>
+      <option value="Galactic Empire">galactic empire</option>
+      <option value="Galactic Republic">galactic republic</option>  
+      <option value="Independent">independent</option> 
+      <option value="Rebel Alliance">rebel alliance</option>
+      <option value="Separatists">separatists</option>
+      <option value="Creatures">creatures</option>                           
+    </select>
+
+    <div class="is-extra-hidden-child" style="display:none">    
+      In set: <select name="in_set" id="in_set">
+        <option value="%%">All</option>
+        <option value="Galactic Moments">galactic moments</option>
+        <option value="Bounty">bounty</option>  
+        <option value="Fans Choice">fan's choice</option> 
+        <option value="Vintage">vintage</option>
+        <option value="Widevision">widevision</option>
+        <option value="Topps Choice">topps' choice</option> 
+        <option value="Other">other</option>                      
+      </select>
+      <input name="other" type="text" id="other" style="display:none" value="All">
+    </div>
+
+
+    Name: <input type="string" name="card_name" id="card_name" value="All"><br/>
+
+    Color: <input type="string" name="color" id="color" value="All"><br/> 
+
+    <div class="is-extra-hidden-child" style="display:none">   
+      Number in Set: <input type="string" name="number_in_set" id="number_in_set" value="All"> <br/>
+    </div>
+
+    Rarity: <input type="string" name="rarity" id="rarity" value="All"> <br/>
+
+    Sold Out: <select name="sold_out" id="sold_out">
+      <option value="%%">All</option>
+      <option value="No">no</option>    
+      <option value="Yes">yes</option> 
+    </select> 
+
+    Series: <select name="series" id="series">
+      <option value="%%">All</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+
+    Order by: <select name="order_selected" id="order_selected">
+        <option value="parallel">Parallel</option>
+        <option value="faction">Faction</option>        
+    </select> 
+
+    <input type="submit" />
+  </form>
+  </fieldset>
+
+
+
+
+
+    </body>
+
+</html>

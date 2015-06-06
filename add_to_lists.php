@@ -24,13 +24,6 @@ foreach ($_POST['have_list'] as $card) {
      if (!($result = @ mysql_query ($query, $connection)))
   	 showerror();
  }
- header('Location:index.html');
-
-// Execute SQL statement
-
-// Display results
-
-
-//echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=index.html">');
-
+ header('Location:main_page.html');
+ 
 ?>

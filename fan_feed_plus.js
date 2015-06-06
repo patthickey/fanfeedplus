@@ -35,9 +35,36 @@ $(document).ready(function(){
 	    }
 	});
 
+
+    $('#in_set').change(function(){
+        if( $(this).val()==="Other"){
+            $("#other").show()
+        }else{
+            $("#other").hide()
+        }
+    });
+    $("#other").keyup(function(ev){
+    var othersOption = $('#in_set').find('option:selected');
+    if(othersOption.val() == "Other")
+    {
+        ev.preventDefault();
+        //change the selected drop down text
+        $(othersOption).html($("#other_add").val()); 
+    } 
+	});
+	$('#display_selected').submit(function() {
+	    var othersOption = $('#in_set').find('option:selected');
+	    if(othersOption.val() == "Other")
+	    {
+	        // replace select value with text field value
+	        othersOption.val($("#other").val());
+	    }
+	});	
+
 });
 
-function all_overide() {
+/*
+function all_override() {
 
 	if((parallel.value=="All")||(parallel.value=="all")||(parallel.value=="")) {
 		parallel.value = "%%";
@@ -93,6 +120,50 @@ function all_overide() {
 		})
 	}
 }
+*/
+
+function all_override_two() {
+
+	if((other.value=="All")||(other.value=="all")||(other.value=="")) {
+		other.value = "%%";
+	}
+
+	if((card_name.value=="All")||(card_name.value=="all")||(card_name.value=="")) {
+		card_name.value = "%%";
+	}
+
+	if((color.value=="All")||(color.value=="all")||(color.value=="")) {
+		color.value = "%%";
+	}
+
+	if((number_in_set.value=="All")||(number_in_set.value=="all")||(number_in_set.value=="")||(!isNaN(number_in_set.value))) {
+		number_in_set.value = "%%";
+	}
+
+	if((rarity.value=="All")||(rarity.value=="all")||(rarity.value=="")||(!isNaN(rarity.value))) {
+		rarity.value = "%%";
+	}
+
+	else {
+		$.ajax({
+		  type: 'POST',
+		  url: 'display_selected.php',
+		  data: {
+		  	parallel:parallel.value, 
+		  	faction:faction.value, 
+		  	in_set:in_set.value, 
+		  	card_name:card_name.value, 
+		  	color:color.value,
+		  	number_in_set:number_in_set.value,
+		  	rarity:rarity.value,
+		  	sold_out:sold_out.value,
+		  	series:series.value,
+		  	order_selected:order_selected.value
+		  },
+		})
+	}
+}
+
 
 function validate_signup() {
 		var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
