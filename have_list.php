@@ -1,7 +1,7 @@
 <html><head><title>have cards</title></head>
 <body>
 <table border=1>
-<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>REMOVE</th></tr>
+<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>FOR TRADE</th><th>REMOVE</th><th>TRADING</th></tr>
 <?php
 session_start();
 include 'db.inc';
@@ -17,12 +17,12 @@ if (!mysql_select_db($databaseName, $connection))
 // Create SQL statement
 $value = $_SESSION["login_user"];
 
-$query = "SELECT id, parallel, faction, in_set, card_name, color, number_in_set, rarity, sold_out, series FROM have_list a, cards b WHERE a.user_id='$value' AND b.id=a.card_id";
+$query = "SELECT id, parallel, faction, in_set, card_name, color, number_in_set, rarity, sold_out, series, trading FROM have_list a, cards b WHERE a.user_id='$value' AND b.id=a.card_id";
 // Execute SQL statement
 if (!($result = @ mysql_query ($query, $connection)))
   showerror();
 // Display results
-echo'<form action="remove_from_have.php" method="post">';
+echo'<form action="update_have.php" method="post">';
 while ($row = @ mysql_fetch_array($result)) {
 echo"<tr>";
 echo"
@@ -35,11 +35,13 @@ echo"
 <td>{$row["rarity"]}</td>
 <td>{$row["sold_out"]}</td>
 <td>{$row["series"]}</td>
+<td>{$row["trading"]}</td>
 ";
 echo'<td><input type="checkbox" name="remove_list[]" value='.$row["id"].'></td>';
+echo'<td><input type="checkbox" name="trading_list[]" value='.$row["id"].'></td>';
 echo"</tr>";
 }
-echo'<input type="submit" value="remove from list"> </form>';
+echo'<input type="submit" value="update list"> </form>';
 ?>
 </table></body>
 </html>

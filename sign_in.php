@@ -19,23 +19,13 @@ $hash = $row["password"];
 
 if (password_verify($password3, $hash)) {
 	$id = $row["id"];
-	//echo "$id";
 	$_SESSION['login_user'] = "$id"; // Initializing Session
 	header('Location:main_page.html');
 } else {
-    echo 'Invalid password.';
+	echo '<script>';
+	echo 'alert("Password is invalid");';
+	echo 'location.href="index.html"';
+	echo '</script>';
 }
-
-/*
-$rows = mysql_num_rows($query);
-if ($rows == 1) {
-	echo 'test 2';
-
-	$_SESSION['login_user']=$id; // Initializing Session
-	header("location: have_list.php"); // Redirecting To Other Page
-} else {
-	 echo "Something went wrong";
-}
-*/
 
 ?>
