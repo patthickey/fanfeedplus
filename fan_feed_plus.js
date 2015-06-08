@@ -326,3 +326,11 @@ function validate_add_card() {
 // END OF INPUT VALIDATON -----------------------------------
 
 
+
+
+
+
+
+
+
+
