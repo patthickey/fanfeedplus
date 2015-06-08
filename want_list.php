@@ -2,7 +2,7 @@
 <html><head><title>want cards</title></head>
 <body>
 <table border=1>
-<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>REMOVE</th></tr>
+<tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>FIND TRADE</th><th>REMOVE</th></tr>
 <?php
 include 'db.inc';
 // Connect to MySQL DBMS
@@ -36,6 +36,8 @@ echo"
 <td>{$row["sold_out"]}</td>
 <td>{$row["series"]}</td>
 ";
+$card_id = $row["id"];
+echo '<td><a href="trade_finder.php?card_id='.$card_id.'">TRADE</a></td>';
 echo'<td><input type="checkbox" name="remove_list[]" value='.$row["id"].'></td>';
 echo"</tr>";
 }
