@@ -21,9 +21,14 @@ if (!mysql_select_db($databaseName, $connection))
 <table border=1 id="user_page_info">
 <tr><th>SCREEN NAME</th><th>JOIN DATE</th><th>MESSAGE</th></tr>
 <?php
-$SN = $_POST['user_name'];
-//$SN = $_POST['app_screen_name'];
-$user_info = "SELECT id, app_screen_name, join_date, message FROM users WHERE app_screen_name='$SN'";
+
+if (isset($_POST['user_name'])) { 
+    $SN = $_POST['user_name']; } 
+    else { 
+    $SN = $_GET['user_name']; 
+}
+
+$user_info = "SELECT id, app_screen_name, join_date, message FROM users WHERE app_screen_name='$SN' ";
 if (!($user_result = @ mysql_query ($user_info, $connection)))
   showerror();
 

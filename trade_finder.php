@@ -44,9 +44,11 @@ echo "<tr>
 <td>{$row["number_in_set"]}</td>
 <td>{$row["rarity"]}</td>
 <td>{$row["sold_out"]}</td>
-<td>{$row["series"]}</td>
-<td>{$row["app_screen_name"]}</td>
-</tr>";
+<td>{$row["series"]}</td>";
+$screen = $row["app_screen_name"];
+echo "$screen";
+echo '<td><a href="user_page.php?user_name='.$screen.'">'.$screen.'</a></td>';
+echo "</tr>";
 }
 ?>
 </table></body>
