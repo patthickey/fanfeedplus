@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html><head><title>add card</title></head>
 <body>
 <?php
@@ -30,7 +31,7 @@ if (!($result = @ mysql_query ($query, $connection)))
 // Display results
 
 
-echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=index.html">');
+echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=main_page.html">');
 
 ?>
 </body>

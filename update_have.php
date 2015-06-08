@@ -26,14 +26,14 @@ foreach ($_POST['trading_list'] as $card) {
 
      if (!($result = @ mysql_query ($query, $connection)))
   	 showerror();
- }
+}
 
 foreach ($_POST['remove_list'] as $card) {
      $query = "DELETE FROM have_list WHERE (user_id='$id' AND card_id=".$card.")";
 
      if (!($result = @ mysql_query ($query, $connection)))
   	 showerror();
- }
+}
 
 	header('Location:have_list.php');
 

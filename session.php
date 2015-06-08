@@ -1,7 +1,7 @@
+<?php session_start(); ?>
 <html><head><title>sign up</title></head>
 <body>
 <?php
-session_start();
 include 'db.inc';
 // Connect to MySQL DBMS
 if (!($connection = @ mysql_connect($hostName, $username,

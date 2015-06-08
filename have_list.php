@@ -1,9 +1,9 @@
+<?php session_start(); ?>
 <html><head><title>have cards</title></head>
 <body>
 <table border=1>
 <tr><th>PARALLEL</th><th>FACTION</th><th>IN SET</th><th>CARD NAME</th><th>COLOR</th><th># IN SET</th><th>RARITY</th><th>SOLD OUT</th><th>SERIES</th><th>FOR TRADE</th><th>REMOVE</th><th>TRADING</th></tr>
 <?php
-session_start();
 include 'db.inc';
 // Connect to MySQL DBMS
 if (!($connection = @ mysql_connect($hostName, $username,
