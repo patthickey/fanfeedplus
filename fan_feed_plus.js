@@ -27,6 +27,7 @@ $(document).ready(function(){
         $(othersOption).html($("#other_add").val()); 
     } 
 	});
+	
 	$('#add_card').submit(function() {
 	    var othersOption = $('#in_set_add').find('option:selected');
 	    if(othersOption.val() == "Other")
@@ -35,6 +36,7 @@ $(document).ready(function(){
 	        othersOption.val($("#other_add").val());
 	    }
 	});
+	
 
 
     $('#in_set').change(function(){
@@ -314,11 +316,13 @@ function validate_add_card() {
 		}
 
 		else{
+		/*
 			$.ajax({
 		 	type: 'POST',
 		  	url: 'add_card.php',
 		  	data: {parallel_add:parallel_add.value, faction_add:faction_add.value, in_set_add:in_set_add.value, card_name_add:card_name_add.value, color_add:color_add.value, number_in_set_add:number_in_set_add.value, rarity_add:rarity_add.value, sold_out_add:sold_out_add.value, series_add:series_add.value},
 		})
+		*/
 			return true;
 		}
 }
