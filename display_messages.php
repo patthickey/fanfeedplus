@@ -14,7 +14,7 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
  
 // Create SQL statement
-$query = "SELECT app_screen_name, message FROM users WHERE message!='Null' LIMIT 100";
+$query = "SELECT app_screen_name, message FROM users a, messages b WHERE b.message!='Null' AND a.id=b.user_id LIMIT 100";
 // Execute SQL statement
 if (!($result = @ mysql_query ($query, $connection)))
   showerror();

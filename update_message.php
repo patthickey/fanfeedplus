@@ -12,8 +12,18 @@ if (!mysql_select_db($databaseName, $connection))
 // Create SQL statement
 $value = $_SESSION["login_user"];
 $message = $_POST['message'];
+$date = date('Y-m-d H:i:s');
 
-$query = "UPDATE users SET message='$message' WHERE id='$value'";
+$test = "SELECT * FROM messages WHERE user_id='$value'";
+	$test_result = mysql_query($test);
+	$num_rows = mysql_num_rows($test_result);
+
+	if($num_rows == 0){
+		$query = "INSERT INTO messages (user_id, message, post_date) VALUES ('$value', '$message', '$date')";
+	} else {
+		$query = "UPDATE messages SET message='$message', post_date='$date' WHERE user_id='$value'";
+	}
+
 // Execute SQL statement
 if (!($result = @ mysql_query ($query, $connection)))
   showerror();

@@ -39,8 +39,8 @@
     </form>
 
     <fieldset>
-      <form method="post" action="user_page.php">
-        View user page: <input type="string" name="user_name" id="user_name" value="type here">
+      <form method="post" action="user_page.php" onsubmit="return validate_user_page()">
+        View user page: <input type="string" name="user_name" id="user_name">
         <input type="submit" />
       </form>
     </fieldset>

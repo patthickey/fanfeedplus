@@ -31,15 +31,27 @@ if (isset($_POST['user_name'])) {
 $user_info = "SELECT id, app_screen_name, join_date, message FROM users WHERE app_screen_name='$SN' ";
 if (!($user_result = @ mysql_query ($user_info, $connection)))
   showerror();
+$user_num_rows = mysql_num_rows($user_result);
 
-while ($row = @ mysql_fetch_array($user_result)) {
-  echo "<tr>
-  <td>{$row["app_screen_name"]}</td>
-  <td>{$row["join_date"]}</td>
-  <td>{$row["message"]}</td>
-  </tr>";
-  $id = $row["id"];
-}?>
+if($user_num_rows == 0){
+  echo '<script>';
+  echo 'alert("User not found!");';
+  echo 'location.href="main_page.html"';
+  echo '</script>';
+}else{
+  while ($row = @ mysql_fetch_array($user_result)) {
+    echo "<tr>
+    <td>{$row["app_screen_name"]}</td>
+    <td>{$row["join_date"]}</td>
+    <td>{$row["message"]}</td>
+    </tr>";
+    $id = $row["id"];
+}
+}
+
+
+
+?>
 </table>
 
 

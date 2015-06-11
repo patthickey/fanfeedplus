@@ -327,6 +327,22 @@ function validate_add_card() {
 		}
 }
 
+
+function validate_user_page(){
+
+		if(user_name.value=="") {
+			alert("forgot username");
+			document.getElementById("user_name").focus();
+			document.getElementById("user_name").style.backgroundColor="#FF6666";
+			return false;
+		}
+
+		else{
+			return true;
+		}
+
+}
+
 // END OF INPUT VALIDATON -----------------------------------
 
 function textCounter(field, cnt, maxlimit) {         
