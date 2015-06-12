@@ -148,6 +148,7 @@ function all_override_two() {
 	}
 
 	else {
+		/*
 		$.ajax({
 		  type: 'POST',
 		  url: 'display_selected.php',
@@ -163,7 +164,8 @@ function all_override_two() {
 		  	series:series.value,
 		  	order_selected:order_selected.value
 		  },
-		})
+		})*/
+		return true;
 	}
 }
 

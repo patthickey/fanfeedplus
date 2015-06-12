@@ -31,7 +31,7 @@ if (!($result = @ mysql_query ($query, $connection)))
 // Display results
 
 
-echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=main_page.html">');
+echo('<META HTTP-EQUIV="Refresh" CONTENT="0; URL=add_card.html">');
 
 ?>
 </body>

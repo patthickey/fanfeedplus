@@ -1,0 +1,21 @@
+#headerfile {
+	padding-bottom: 4em;
+}
+
+#footerfile {
+	padding-top: 4em;
+}
+
+#message {
+	width: 100%;
+	height: 5em;
+}
+
+.view-cards-button {
+	width: 50%;
+	position: fixed;
+}
+
+.button-box {
+	padding-bottom: 2em;
+}

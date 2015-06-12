@@ -9,14 +9,31 @@ if (!mysql_select_db($databaseName, $connection))
   showerror();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Patt Hickey">  
+    <title>fan feed +</title>
 
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
-
-
-
-
-<html><head><title>user page</title></head>
-<body>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="headerfile"></div>
+    <div class="row">
+      <div class="col-md-11 col-md-offset-1">
+      
 <h2>USER INFO</h2>
 <table border=1 id="user_page_info">
 <tr><th>SCREEN NAME</th><th>JOIN DATE</th><th>MESSAGE</th></tr>
@@ -28,7 +45,7 @@ if (isset($_POST['user_name'])) {
     $SN = $_GET['user_name']; 
 }
 
-$user_info = "SELECT id, app_screen_name, join_date, message FROM users WHERE app_screen_name='$SN' ";
+$user_info = "SELECT id, app_screen_name, join_date, message FROM users a, messages b WHERE a.app_screen_name='$SN' AND a.id=b.user_id";
 if (!($user_result = @ mysql_query ($user_info, $connection)))
   showerror();
 $user_num_rows = mysql_num_rows($user_result);
@@ -107,5 +124,21 @@ while ($row = @ mysql_fetch_array($want_result)) {
 }
 ?>
 </table>
-</body>
+
+      </div>
+    </div>
+    <div id="footerfile"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/JavaScript" src="fan_feed_plus.js"></script> 
+    <script> 
+      $(function(){
+        $("#headerfile").load("header.html"); 
+        $("#footerfile").load("footer.html"); 
+      });
+    </script>
+  </body>
 </html>
+
+
