@@ -32,7 +32,7 @@ if (!mysql_select_db($databaseName, $connection))
   <body>
     <div id="headerfile"></div>
     <div class="row">
-      <div class="col-md-11 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1">
       
 <h2>USER INFO</h2>
 <table border=1 id="user_page_info">

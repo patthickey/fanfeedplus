@@ -21,7 +21,7 @@
   <body>
     <div id="headerfile"></div>
     <div class="row">
-      <div class="col-md-11 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1">
       
 <div class="table-responsive">
 <table border=1 class="table table-striped table-condensed">
