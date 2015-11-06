@@ -22,26 +22,46 @@
     <div id="headerfile"></div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-      
-  <fieldset>
+
+  <fieldset>      
   <form action="sign_up.php" method="post" onsubmit="return validate_signup();">
     <legend>sign up</legend>
-    Email address: <input type="email" name="email_up" id="email_up"> <br/>
-    Password: <input type="password" name="password1" id="password1"> <br/>
-    Retype Password: <input type="password" name="password2" id="password2"> <br/>
-    App Screen Name: <input type="string" name="app_screen_name" id="app_screen_name"> <br/>    
-    <input type="submit" />
+      <div class="form-group">
+        <label for="email_up">Email Address</label>
+        <input type="email" class="form-control" name="email_up" id="email_up" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" class="form-control" name="password1" id="password1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="password2">Retype Password</label>
+        <input type="password" class="form-control" name="password2" id="password2" placeholder="Retype assword">
+      </div>
+      <div class="form-group">
+        <label for="app_screen_name">App Screen Name</label>
+        <input type="string" class="form-control" name="app_screen_name" id="app_screen_name" placeholder="Email">
+      </div>
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
-  </fieldset>  
+  </fieldset> 
 
   <br/>
 
   <fieldset>
   <form action="sign_in.php" method="post" onsubmit="return validate_signin();">
-    <legend>sign in</legend>
-    Email address: <input type="email" name="email_in" id="email_in"> <br/>
-    Password: <input type="password" name="password3" id="password3"> <br/>  
-    <input type="submit" />
+          <legend>sign in</legend>
+          
+            <div class="form-group">
+              <label for="email_in">Email Address</label>
+              <input type="email" class="form-control" name="email_in" id="email_in" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="password3">Password</label>
+              <input type="password" class="form-control" name="password3" id="password3" placeholder="Password">
+            </div>
+
+          <button type="submit" class="btn btn-default">Submit</button>
   </form>
   </fieldset>  
 
